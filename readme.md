@@ -5,6 +5,9 @@ Group creation web application using criteria such as shared keyword interests a
 
 ## Authors
 Michael Haynes
+
 James Best
+
 Jackson Franke
+
 Mason Scarbro
