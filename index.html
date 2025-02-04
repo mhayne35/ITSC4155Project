@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamForge - Build Better Teams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 80px;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+            padding: 10px 15px;
+            background: #005bb5;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-bar a:hover {
+            background: #00408a;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #0073e6;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .team-logo {
+            width: 150px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* ALTERNATING LAYOUT */
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .section img {
+            width: 40%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .text {
+            width: 50%;
+        }
+
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        footer {
+            background: #0073e6;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="TeamForge2.png" alt="TeamForge Logo" class="logo">
+        <nav class="nav-bar">
+            <a href="TBS copy.html">Survey</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <img src="TeamForge.png" alt="TeamForge Logo" class="team-logo">
+
+        <!-- WELCOME MESSAGE -->
+        <div class="section">
+            <img src="team1.jpg" alt="Team Collaboration">
+            <div class="text">
+                <h2>Welcome to TeamForge</h2>
+                <p>
+                    TeamForge is your ultimate platform for building dynamic and high-performing teams. 
+                    Whether you're looking for collaborators, brainstorming new ideas, or forming a dream project squad, 
+                    TeamForge connects like-minded individuals with shared goals and skills. 
+                    Take our **Team Building Survey** to find the best matches and start creating something incredible today!
+                </p>
+            </div>
+        </div>
+
+        <!-- ABOUT THE SOFTWARE -->
+        <div class="section">
+            <img src="team2.jpg" alt="Team Brainstorming">
+            <div class="text">
+                <h2>About TeamForge</h2>
+                <p>
+                    TeamForge is designed to simplify team-building by matching individuals based on skills, interests, and availability. 
+                    Our advanced survey system analyzes responses to provide the best possible matches, ensuring every team has 
+                    the right combination of skills and personalities to succeed.
+                </p>
+            </div>
+        </div>
+
+        <!-- MEET THE DEVELOPERS -->
+        <div class="section">
+            <img src="team3.jpg" alt="Team Success">
+            <div class="text">
+                <h2>Meet the Developers</h2>
+                <p>
+                    TeamForge was built with passion and dedication by a team of talented developers:
+                </p>
+                <p><strong>James Best</strong> - Lead Developer & Security Specialist</p>
+                <p><strong>Jackson Franke</strong> - Frontend & UI/UX Designer</p>
+                <p><strong>Michael Haynes</strong> - Backend & Database Architect</p>
+                <p><strong>Mason Scarbro</strong> - Full Stack Developer & API Engineer</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 TeamForge. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

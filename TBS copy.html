@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Building Survey</title>
+    <link rel="stylesheet" href="forStart.css"> <!-- Ensure CSS file is present -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        header {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        main {
+            background: white;
+            max-width: 800px;
+            width: 90%;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #888;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        button {
+            background: #0073e6;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #005bb5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #0073e6;
+            color: white;
+            width: 100%;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .slider-container label {
+            flex: 1;
+        }
+
+        .slider-container input {
+            flex: 2;
+            margin: 0 10px;
+        }
+
+        .slider-value {
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Team Building Survey</h1>
+        <p>Connect with teammates who share your interests!</p>
+    </header>
+
+    <main>
+        <form id="surveyForm" action="submit.html" method="POST">
+            <!-- Personal Information Section -->
+            <section>
+                <h2>Personal Information</h2>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+            </section>
+
+            <!-- Interests Section -->
+            <section>
+                <h2>Interests & Hobbies</h2>
+                <div class="form-group">
+                    <label for="interests">Your Interests:</label>
+                    <textarea id="interests" name="interests" rows="4" placeholder="E.g., Reading, Sports, Coding, Painting"></textarea>
+                </div>
+            </section>
+
+            <!-- Skills & Experience Section -->
+            <section>
+                <h2>Skills & Experience</h2>
+                <div class="form-group">
+                    <label for="skills">Your Skills:</label>
+                    <textarea id="skills" name="skills" rows="4" placeholder="E.g., Problem-solving, Teamwork, Communication"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pastProjects">Past Projects:</label>
+                    <textarea id="pastProjects" name="pastProjects" rows="4" placeholder="E.g., Built a chatbot, Took a cybersecurity course"></textarea>
+                </div>
+            </section>
+
+            <!-- Personal Traits Section -->
+            <section>
+                <h2>Personal Traits</h2>
+                <p>Rate yourself on a scale of 1 to 10 for the following traits:</p>
+
+                <div class="slider-container">
+                    <label for="creativity">Creativity:</label>
+                    <input type="range" id="creativity" name="creativity" min="1" max="10" value="5" oninput="updateValue('creativityValue', this.value)">
+                    <span id="creativityValue" class="slider-value">5</span>
+                </div>
+
+                <div class="slider-container">
+                    <label for="leadership">Leadership:</label>
+                    <input type="range" id="leadership" name="leadership" min="1" max="10" value="5" oninput="updateValue('leadershipValue', this.value)">
+                    <span id="leadershipValue" class="slider-value">5</span>
+                </div>
+
+                <div class="slider-container">
+                    <label for="enthusiasm">Enthusiasm:</label>
+                    <input type="range" id="enthusiasm" name="enthusiasm" min="1" max="10" value="5" oninput="updateValue('enthusiasmValue', this.value)">
+                    <span id="enthusiasmValue" class="slider-value">5</span>
+                </div>
+            </section>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Survey</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Team Building Survey. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateValue(spanId, value) {
+            document.getElementById(spanId).innerText = value;
+        }
+    </script>
+</body>
+</html>
