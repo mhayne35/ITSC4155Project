@@ -12,6 +12,14 @@ Jackson Franke
 
 Mason Scarbro
 
+## Dependencies
+* PostgreSQL 17.2
+* Some version of Python 3 (I don't know, just use the latest version)
+* psycopg2 (used for createDB.py)
+  * If you're getting a ModuleNotFound error it's probably installing the package to
+  the wrong installation of Python. To solve this do "py -m pip install psycopg2" 
+  instead of just "pip install psycopg2".
+
 ## HELP HOW DO I USE POSTGRESQL
 1. INSTALL POSTGRESQL 17.2 ON YOUR MACHINE. https://www.postgresql.org/download/
   * Because I am lazy, use the password "password" and default settings for everything.
@@ -25,6 +33,7 @@ Mason Scarbro
   * Password is "password".
   * Everything else is default.
 6. You should be connected!
+
 (I'll update this with more steps the further along I get into developing the database. -Michael)
 
 ## Something doesn't work
