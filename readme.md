@@ -11,3 +11,23 @@ James Best
 Jackson Franke
 
 Mason Scarbro
+
+## HELP HOW DO I USE POSTGRESQL
+1. INSTALL POSTGRESQL 17.2 ON YOUR MACHINE. https://www.postgresql.org/download/
+  * Because I am lazy, use the password "password" and default settings for everything.
+  * DO NOT USE "PASSWORD" IN A LIVE PRODUCTION ENVIRONMENT
+2. Install the PostgreSQL extension for VSCode (the one published by Microsoft)
+3. (Topbar) ">PostgreSQL: New Query"
+4. Create Connection Profile
+5. Connect to localhost.
+  * Assuming you followed step 1 correctly:
+  * User is "postgres"
+  * Password is "password".
+  * Everything else is default.
+6. You should be connected!
+(I'll update this with more steps the further along I get into developing the database. -Michael)
+
+## Something doesn't work
+![Works on my machine.](/worksonmymachine.png)
+
+(But seriously, good luck figuring out what went wrong, because I won't know.)
