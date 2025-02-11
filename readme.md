@@ -19,6 +19,8 @@ Mason Scarbro
   * If you're getting a ModuleNotFound error it's probably installing the package to
   the wrong installation of Python. To solve this do "py -m pip install psycopg2" 
   instead of just "pip install psycopg2".
+* Node.js
+* Docker (for development purposes)
 
 ## HELP HOW DO I USE POSTGRESQL
 1. INSTALL POSTGRESQL 17.2 ON YOUR MACHINE. https://www.postgresql.org/download/
