@@ -41,6 +41,18 @@ Mason Scarbro
 
 (I'll update this with more steps the further along I get into developing the database. -Michael)
 
+## HELP HOW DO I USE DOCKER
+1. INSTALL DOCKER LOCALLY ON YOUR COMPUTER. Make sure it's running!
+  * You may need to install dependencies depending on your OS, such as WSL if you're on Windows.
+2. docker build -t itsc4155projectimage .
+3. docker run --name itsc4155projectcontainer -p 5432:5432 -p 80:80 -p 443:443 -p 25:25 -d itsc4155projectimage
+  * Container already exists? Remove it with "docker remove itsc4155projectcontainer"
+* To enter the container, run "docker exec -it itsc4155projectcontainer sh"
+* To exit the container, run "exit" while inside the container.
+* To stop the container, run "docker stop itsc4155projectcontainer"
+* Want to access the website while the container is running? Go to "http://localhost:80".
+
+
 ## Something doesn't work
 ![Works on my machine.](/worksonmymachine.png)
 
