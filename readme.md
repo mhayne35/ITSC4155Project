@@ -1,7 +1,10 @@
 # ITSC 4155 Final Project
 
 ## Description
-Group creation web application using criteria such as shared keyword interests and quantitatively-measured traits.
+Group creation web application using criteria such as shared keyword interests and quantitatively-measured traits. 
+Users sign up and create an account, write a bio about themselves, and are allowed to scroll through other potential teammates.
+Users can submit a survey or sorts to request teammates for a specific project, which the website algorithm will then use to match them to other users that may be interested, or having skills that pertain to the area of need.
+Once users get a match, they will recieve an email notifying them and a way to contact the other user.
 
 ## Authors
 Michael Haynes
