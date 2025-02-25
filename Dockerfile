@@ -18,6 +18,10 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y npm
 # psycopg2 binaries (we're not using the regular package)
 RUN pip3 install psycopg2-binary --break-system-packages
+# flask
+RUN pip3 install flask --break-system-package
+RUN pip3 install flask_cors --break-system-package
+
 
 # Check node & npm's versions
 RUN node -v
@@ -29,6 +33,9 @@ ENV POSTGRES_DB = "postgres"
 
 # Copy over files
 COPY website/ /usr/share/nginx/html/
+COPY backend/ /usr/share/nginx/html/
+
+CMD ["python3","/usr/share/nginx/html/app.py"]
 
 # Open ports
 
@@ -42,3 +49,5 @@ EXPOSE 443
 EXPOSE 25
 # node.js
 EXPOSE 3000
+# Used by add_user.js
+EXPOSE 5000
