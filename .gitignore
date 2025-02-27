@@ -1,3 +1,4 @@
 # Ignore that one file MacOSX likes to make for some reason.
 .DS_Store
 .DS_Store?
+.env
