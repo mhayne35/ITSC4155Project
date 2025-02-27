@@ -9,19 +9,37 @@ This document will guide you through the process of starting up the Flask app an
    pip install flask flask-cors psycopg2
    ```
 
-2. **Run the App**
+2. **Set Up .env File**
+Now that the app is connected to Azure, you need to create a .env file in the root directory of your project with the following variables:
+
+```e
+ADMIN_PASS=MHBF&UNCC25
+ADMIN_LOGIN=apolloadmin
+ADMIN_USER={your_school_email}
+ACCESS_TOKEN={generated_access_token}
+
+```
+Replace {your_school_email} with your school email address.
+The ACCESS_TOKEN can be generated through the Azure portal as outlined below.
+
+**Generating the Access Token:**
+
+- Go to the Azure portal: Azure Portal
+- Click Connect in the top left of the overview screen.
+- Ignore any errors and run this command in your terminal:
+```bash
+az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
+```
+- Copy the generated access token and paste it into the .env file.
+
+3. **Run the App**
 To start the Flask app, navigate to the directory where app.py is located and run the following command:
 ```bash
 python app.py
 ```
 you might need to cd into backend first
 
-3. **Setting Up the Database**
-Before using the app, make sure your PostgreSQL database is set up with a users table. This table should have at least the following columns:
 
-- username (TEXT)
-- password (TEXT)
-- email (TEXT)
 
 ### How the JS Communicates ###
 Now, let’s look at how the frontend JavaScript interacts with the Flask app to send user data (such as username, password, and email) to the backend.

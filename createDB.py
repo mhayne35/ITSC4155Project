@@ -2,15 +2,24 @@
 # REQUIRED: psycopg2 (pip install psycopg2)
 
 import psycopg2
+import os
+
+
+### DEPRECATED: The DB only needed to be created once wiht Azure do not run this ###
+
+
+ADMIN_USER = os.getenv("ADMIN_USER")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
 # Establish connection to DB and create cursor
 conn = psycopg2.connect(
-    database="postgres",
-    host="localhost",
-    user="postgres",
-    password="password",
-    port="5432"
-                        )
+            database="postgres",
+            host="apollo-dev.postgres.database.azure.com",
+            user=ADMIN_USER,
+            password=ACCESS_TOKEN,
+            port="5432",
+            sslmode="require"
+        )
 cursor = conn.cursor()
 
 # Drop the table
