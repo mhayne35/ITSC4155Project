@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - TeamForge</title>
+    <script src="./scripts/validate_user.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -130,7 +131,7 @@
 
     <!-- HEADER -->
     <header>
-        <img src="TeamForge2.png" alt="TeamForge Logo" class="logo">
+        <img src="images/TeamForge2.png" alt="TeamForge Logo" class="logo">
         <nav class="nav-bar">
             <a href="index.html">Home</a>
             <a href="signup.html">Sign Up</a>
@@ -165,51 +166,7 @@
         <p>&copy; 2025 TeamForge. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            // Get input values
-            let email = document.getElementById("email").value.trim();
-            let password = document.getElementById("password").value.trim();
-            let emailError = document.getElementById("emailError");
-            let passwordError = document.getElementById("passwordError");
-            let generalError = document.getElementById("generalError");
-
-            // Reset error messages
-            emailError.style.display = "none";
-            passwordError.style.display = "none";
-            generalError.style.display = "none";
-
-            let isValid = true;
-
-            // Input validation
-            if (!email) {
-                emailError.style.display = "block";
-                isValid = false;
-            }
-
-            if (!password) {
-                passwordError.style.display = "block";
-                isValid = false;
-            }
-
-            if (!email || !password) {
-                generalError.style.display = "block";
-                isValid = false;
-            }
-
-            // Input sanitization to prevent SQL injection
-            let sanitizedEmail = email.replace(/['";--]/g, "");
-            let sanitizedPassword = password.replace(/['";--]/g, "");
-
-            if (isValid) {
-                // Simulate a successful login and redirect
-                alert("Login successful!");
-                window.location.href = "index.html";
-            }
-        });
-    </script>
+   
 
 </body>
 </html>

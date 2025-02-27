@@ -70,5 +70,47 @@ def add_user():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
     
+@app.route('/validate_user', methods=['POST'])
+def validate_user():
+    #adds the user 
+    try:
+        logging.info("Received request to /validate_user")
+        # gets the data and its json object
+        data = request.get_json();
+        if not data:
+            logging.error("No JSON received!")
+            return jsonify({"error": "Invalid JSON"}), 400
+        
+        username_or_email=data['username_or_email']
+        password=data['password']
+        
+
+        if not username_or_email or not password:
+            logging.error(f"Missing fields: {data}")
+            return jsonify({"error": "Missing fields"}), 400
+        
+
+       
+
+        conn=get_db_connection() #gets teh connection
+        cursor=conn.cursor() 
+
+        #inserts the user into the db 
+        cursor.execute("SELECT username, email FROM users WHERE (username = %s OR email = %s) AND password = %s",
+                        (username_or_email, username_or_email, password))
+        user = cursor.fetchone();
+
+        cursor.close();
+        conn.close();
+    
+        if user:
+            return jsonify({"message": "User validated", "user": {"username": user[0], "email": user[1]}}), 200
+        else:
+            return jsonify({"error": "Invalid username or password"}), 401
+        
+    except Exception as e:
+        logging.error(f"Error in validate_user: {str(e)}")
+        return jsonify({"error": str(e)}), 400
+    
 if __name__ == '__main__':
     app.run(debug=True)
