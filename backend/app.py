@@ -71,4 +71,5 @@ def add_user():
         return jsonify({"error": str(e)}), 400
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    # host='0.0.0.0' and port=5000 added to attempt to get it to work in Docker
+    app.run(debug=True, host='0.0.0.0', port=5000)
