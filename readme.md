@@ -58,3 +58,7 @@ Mason Scarbro
 ![Works on my machine.](/worksonmymachine.png)
 
 (But seriously, good luck figuring out what went wrong, because I won't know.)
+
+
+## git immersion - james Best
+edit for git immersion
