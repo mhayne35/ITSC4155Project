@@ -81,7 +81,7 @@
             text-align: center;
             margin-top: 20px;
         }
-        
+
         html, body {
             height: 100%;
             margin: 0;
@@ -121,8 +121,8 @@
     <main>
         <h1>Matched Teammate</h1>
         <div class="bio-container">
-            <p><strong>Name:</strong> <%= username %></p>
-            <p><strong>Email:</strong> <%= email %></p>
+            <p><strong>Name:</strong> <span id="user-name">Loading...</span></p>
+            <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
         </div>
     </main>
 
@@ -130,6 +130,8 @@
     <footer>
         <p>&copy; 2025 TeamForge. All rights reserved.</p>
     </footer>
+
+    <script src="loadbio.js"></script>
 
 </body>
 </html>
