@@ -1,5 +1,5 @@
 
-
+import { registerUser } from './endpoints.js';
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("signupForm").addEventListener("submit", function(event) {
         event.preventDefault();
@@ -57,31 +57,15 @@ document.addEventListener("DOMContentLoaded", function(){
     
         if (isValid) {
             // fetches from the hosted backend (post url)
-            fetch('http://127.0.0.1:5000/add_user', {
-                method: 'POST', //post method
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                // feeds it the name, pass, and email as json (app jsonifies the data)
-                body: JSON.stringify({
-                    username: name,
-                    password: password,
-                    email: email
-                })
-            })
-            .then(response => response.json()) // response
+            registerUser(name, password, email)
             .then(data => {
-                if (data.user) {
-                    alert(`User added: ${data.user[0]}`); // debugging
-                    window.location.href = "index.html"; // redirects after sign
+                if (data) {
+                    alert("User Added: \n" + data[0]);
+                    
                 } else {
-                    alert('Error adding user'); 
+                    alert("Invalid username or password");
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error adding user');
-            });
         }
     });
     

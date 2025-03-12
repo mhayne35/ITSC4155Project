@@ -13,24 +13,13 @@ This document will guide you through the process of starting up the Flask app an
 Now that the app is connected to Azure, you need to create a .env file in the root directory of your project with the following variables:
 
 ```e
-ADMIN_PASS=MHBF&UNCC25
+ADMIN_PASS=SBHF_postgres
 ADMIN_LOGIN=apolloadmin
-ADMIN_USER={your_school_email}
-ACCESS_TOKEN={generated_access_token}
 
 ```
 Replace {your_school_email} with your school email address.
 The ACCESS_TOKEN can be generated through the Azure portal as outlined below.
 
-**Generating the Access Token:**
-
-- Go to the Azure portal: Azure Portal
-- Click Connect in the top left of the overview screen.
-- Ignore any errors and run this command in your terminal:
-```bash
-az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
-```
-- Copy the generated access token and paste it into the .env file.
 
 3. **Run the App**
 To start the Flask app, navigate to the directory where app.py is located and run the following command:
