@@ -14,23 +14,41 @@ Session(app)
 
 ADMIN_LOGIN = os.getenv("ADMIN_LOGIN")
 ADMIN_PASS = os.getenv("ADMIN_PASS")
+DEV_MODE = os.getenv("DEV_MODE")
 
 #Gets the connection
 def get_db_connection():
-    try:
-        conn = psycopg2.connect(
-            database="postgres",
-            host="apollo-dev.postgres.database.azure.com",
-            user=ADMIN_LOGIN,
-            password=ADMIN_PASS,
-            port="5432",
-            sslmode="require"
-        )
-        logging.info("Connected to the database successfully.")
-        return conn
-    except Exception as e:
-        logging.error(f"Database connection failed: {str(e)}")
-        return None
+    if DEV_MODE == "True":
+        logging.info("DEV_MODE set to \"True\" in .env file, using local DB")
+        try:
+            conn = psycopg2.connect(
+                database="postgres",
+                user="postgres",
+                password="password",
+                host="localhost",
+                port="5432"
+            )
+            logging.info("Connected to the database successfully.")
+            return conn
+        except Exception as e:
+            logging.error(f"Database connection failed: {str(e)}")
+            return None
+
+    else:
+        try:
+            conn = psycopg2.connect(
+                database="postgres",
+                host="apollo-dev.postgres.database.azure.com",
+                user=ADMIN_LOGIN,
+                password=ADMIN_PASS,
+                port="5432",
+                sslmode="require"
+            )
+            logging.info("Connected to the database successfully.")
+            return conn
+        except Exception as e:
+            logging.error(f"Database connection failed: {str(e)}")
+            return None
 
 #the route/url that is sends the post
 @app.route('/add_user', methods=['POST'])
