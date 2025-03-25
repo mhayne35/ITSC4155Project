@@ -72,6 +72,21 @@
         .bio-container p {
             font-size: 18px;
             color: #333;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        /* Simple input/textarea styling for full width */
+        .bio-container input[type="text"],
+        .bio-container input[type="email"],
+        .bio-container textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         footer {
@@ -101,8 +116,6 @@
             text-align: center;
             margin-top: auto;
         }
-
-
     </style>
 </head>
 <body>
@@ -119,10 +132,19 @@
 
     <!-- MAIN CONTENT -->
     <main>
-        <h1>Matched Teammate</h1>
+        <h1>About Me:</h1>
         <div class="bio-container">
-            <p><strong>Name:</strong> <span id="user-name">Loading...</span></p>
-            <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+            <p><strong>My name:</strong></p>
+            <input type="text" name="name">
+
+            <p><strong>My email:</strong></p>
+            <input type="email" name="email">
+
+            <p><strong>My skills:</strong></p>
+            <textarea name="skills" rows="4"></textarea>
+
+            <p><strong>Projects I am working on:</strong></p>
+            <textarea name="projects" rows="4"></textarea>
         </div>
     </main>
 
