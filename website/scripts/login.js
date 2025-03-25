@@ -1,3 +1,5 @@
+
+import { validateUser, getCurrUser } from './endpoints.js';
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("loginForm").addEventListener("submit", function(event) {
         event.preventDefault();
@@ -36,30 +38,16 @@ document.addEventListener("DOMContentLoaded", function(){
        
     
         if (isValid) {
-            fetch('http://127.0.0.1:5000/validate_user', {
-                method: 'POST', //post method
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                // feeds it the name, pass, and email as json (app jsonifies the data)
-                body: JSON.stringify({
-                    username_or_email: emailOrUsername, //label username is just because simplicity it can take both
-                    password: password,
-                })
-            })
-            .then(response => response.json()) // response
+            validateUser(emailOrUsername, password)
             .then(data => {
-                if (data.user) {
-                    alert(`Welcome: ${data.user.username}`); // debugging
-                    window.location.href = "biography.html"; // redirects after sign
+                if (data) {
+                    alert("Data from validate: \n" + data.username);
+                    
                 } else {
-                    alert(data.error || 'Invalid username or password'); 
+                    alert("Invalid username or password");
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error adding user');
-            });
+             // Delay to ensure session updates
         }
     });
 })

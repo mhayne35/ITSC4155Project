@@ -8,5 +8,6 @@ docker remove itsc4155projectcontainer
 echo "Rebuilding image..."
 docker build -t itsc4155projectimage .
 echo "Running container..."
-docker run --name itsc4155projectcontainer -p 5432:5432 -p 80:80 -p 443:443 -p 25:25 -p 3000:3000 -p 5000:5000 -d itsc4155projectimage
+docker run --name itsc4155projectcontainer -p 5000:5000 -p 80:80 -p 443:443 -p 25:25 -d itsc4155projectimage
 echo "Container running! Stop with 'docker stop itsc4155projectcontainer'."
+echo "Shell in with 'docker exec -it itsc4155projectcontainer bash'."
