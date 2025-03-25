@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Connections - TeamForge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 80px;
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-left: 20px;
+            padding: 10px 15px;
+            background: #005bb5;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-bar a:hover {
+            background: #00408a;
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .search-container input {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* USER PROFILES GRID */
+        .profiles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+        }
+
+        .profile {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile h2 {
+            color: #0073e6;
+            margin: 10px 0 5px;
+        }
+
+        .profile p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .profile button {
+            background: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .profile button:hover {
+            background: #005bb5;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #b2cde8;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <img src="images/TeamForge2.png" alt="TeamForge Logo" class="logo">
+        <nav class="nav-bar">
+            <a href="signedinhome.html">Home</a>
+            <a href="TBS copy.html">Survey</a>
+        </nav>
+    </header>
+
+    <!--Search Bar-->
+    <div class="search-container">
+        <form action="recommended.html" method="GET" style="display: flex; justify-content: center; align-items: center;">
+            <input type="text" name="query" placeholder="Search person..." style="margin-right: 10px;">
+            <a href="recommended.html"><button type="submit">Search</button></a>
+        </form>
+    </div>
+
+    <!-- Profiles Grid -->
+    <section class="profiles-container">
+        <div class="profile">
+            <img src="./images/pfp.jpg" alt="User">
+            <h2>John Doe</h2>
+            <p>Full-time college student looking to start working on professional software development projects.</p>
+            <a href="biography.html"><button>Connect</button></a>
+        </div>
+        <div class="profile">
+            <img src="./images/pfp.jpg" alt="User">
+            <h2>Jane Smith</h2>
+            <p>Passionate about AI and web development. Looking for a teammate to build a machine learning project.</p>
+            <a href="biography.html"><button>Connect</button></a>
+        </div>
+        <div class="profile">
+            <img src="./images/pfp.jpg" alt="User">
+            <h2>Alex Johnson</h2>
+            <p>Interested in game development. Searching for a Unity developer to collaborate on an indie game.</p>
+            <a href="biography.html"><button>Connect</button></a>
+        </div>
+        <div class="profile">
+            <img src="./images/pfp.jpg" alt="User">
+            <h2>Emily Davis</h2>
+            <p>Blockchain enthusiast looking to create a decentralized finance application.</p>
+            <a href="biography.html"><button>Connect</button></a>
+        </div>
+        <div class="profile">
+            <img src="./images/pfp.jpg" alt="User">
+            <h2>Michael Lee</h2>
+            <p>Full-stack developer eager to work on open-source web projects.</p>
+            <a href="biography.html"><button>Connect</button></a>
+        </div>
+        <div class="profile">
+            <img src="./images/pfp.jpg" alt="User">
+            <h2>Sophia Brown</h2>
+            <p>UX/UI designer looking for a front-end developer to collaborate on a portfolio website.</p>
+            <a href="biography.html"><button>Connect</button></a>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer>
+        <p>&copy; 2025 TeamForge. All rights reserved.</p>
+    </footer>
+</body>
+</html>

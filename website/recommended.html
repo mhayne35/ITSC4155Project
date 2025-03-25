@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeamForge - Home</title>
+    <title>Search Results - TeamForge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* HEADER */
@@ -46,83 +49,111 @@
             background: #00408a;
         }
 
-        /* MAIN CONTENT */
-        main {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2 {
-            color: #0073e6;
+        /* SEARCH BAR */
+        .search-container {
             text-align: center;
+            margin: 20px;
         }
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .team-logo {
-            width: 150px;
-            display: block;
-            margin: 20px auto;
-        }
-
-        /* ALTERNATING LAYOUT */
-        .section {
+        .search-container form {
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
-            margin: 40px 0;
         }
 
-        .section img {
-            width: 40%;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .text {
+        .search-container input {
             width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
         }
 
-        .section:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        footer {
-            background: #4990d6;
+        .search-container button {
+            background: #0073e6;
             color: white;
-            padding: 15px;
-            text-align: center;
-            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background: #005bb5;
+        }
+
+        /* RESULTS CONTAINER */
+        .profiles-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
         }
 
         .profile {
-            background: #4e9ce9;
-            padding: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            font-size: 8px;
-            border-radius: 2px;
-            border-color: #000000;
         }
 
-        .section pfp {
-            width: 40%;
-            max-width: 100px;
-            border-radius: 10px;
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile h2 {
+            color: #0073e6;
+            margin: 10px 0 5px;
+        }
+
+        .profile p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .profile a button {
+            background: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .profile a button:hover {
+            background: #005bb5;
+        }
+
+        /* NO RESULTS MESSAGE */
+        .no-results {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #b2cde8;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
-
-    <!-- HEADER -->
+    <!--Header-->
     <header>
         <img src="images/TeamForge2.png" alt="TeamForge Logo" class="logo">
         <nav class="nav-bar">
@@ -131,20 +162,70 @@
         </nav>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <img src="images/TeamForge.png" alt="TeamForge Logo" class="team-logo">
+    <!--Search Bar-->
+    <div class="search-container">
+        <form action="recommended.html" method="GET">
+            <input type="text" name="query" placeholder="Search person...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
-        <profile>
-            <img src="images/pfp.jpg" alt="Recommended match" class="profile-pic">
-            <a href="biography.html">Connect</a>
-        </profile>
-    </main>
+    <!-- Search Results -->
+    <section id="results" class="profiles-container">
+        <!-- Dynamic content will be inserted here -->
+    </section>
 
-    <!-- FOOTER -->
+    <!-- No Results Message -->
+    <p id="no-results" class="no-results" style="display: none;">No users found matching your search.</p>
+
+    <!--Footer-->
     <footer>
         <p>&copy; 2025 TeamForge. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript for Dynamic Content -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Simulated User Data (replace this with actual backend data)
+            const users = [
+                { name: "John Doe", desc: "Software developer looking for a startup partner.", img: "./images/pfp.jpg", bio: "biography.html" },
+                { name: "Jane Smith", desc: "AI enthusiast searching for a machine learning teammate.", img: "./images/pfp.jpg", bio:"biography.html" },
+                { name: "Alex Johnson", desc: "Game dev eager to build an indie game.", img: "./images/pfp.jpg", bio: "biography.html" },
+                { name: "Emily Davis", desc: "Blockchain lover wanting to create a DeFi app.", img: "./images/pfp.jpg", bio: "biography.html" },
+                { name: "Michael Lee", desc: "Full-stack developer looking for web projects.", img: "./images/pfp.jpg", bio: "biography.html" },
+                { name: "Sophia Brown", desc: "UX/UI designer needing a front-end dev.", img: "./images/pfp.jpg", bio: "biography.html" }
+            ];
+
+            // Get search query
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get("query")?.toLowerCase() || "";
+
+            // Filter users based on query
+            const filteredUsers = users.filter(user => 
+                user.name.toLowerCase().includes(query) || 
+                user.desc.toLowerCase().includes(query)
+            );
+
+            const resultsContainer = document.getElementById("results");
+            const noResultsMessage = document.getElementById("no-results");
+
+            if (filteredUsers.length === 0) {
+                noResultsMessage.style.display = "block";
+            } else {
+                noResultsMessage.style.display = "none";
+                filteredUsers.forEach(user => {
+                    const userCard = `
+                        <div class="profile">
+                            <img src="${user.img}" alt="User">
+                            <h2>${user.name}</h2>
+                            <p>${user.desc}</p>
+                            <a href="${user.bio}"><button>Connect</button></a>
+                        </div>
+                    `;
+                    resultsContainer.innerHTML += userCard;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
