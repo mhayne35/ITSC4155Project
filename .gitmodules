@@ -1,0 +1,3 @@
+[submodule "teamforge-backend"]
+	path = teamforge-backend
+	url = https://github.com/MasonScarbro/teamforge-backend

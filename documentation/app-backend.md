@@ -6,7 +6,7 @@ This document will guide you through the process of starting up the Flask app an
    First, install the necessary Python libraries by running the following command in your terminal:
    
    ```bash
-   pip install flask flask-cors psycopg2
+   pip install flask flask-cors psycopg2 flask_session
    ```
 
 2. **Set Up .env File**
