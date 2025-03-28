@@ -14,9 +14,9 @@ export async function validateUser(emailOrUsername, password) {
         });
 
         const data = await response.json();
-        window.location.href = "http://127.0.0.1:5500/website/biography.html"; 
+        
         if (!response.ok) throw new Error(data.error || "Invalid username or password");
-
+        window.location.href = "https://dulcet-baklava-36c54a.netlify.app/biography.html"; 
         return data.user; // Ensure this returns the user properly
 
     } catch (error) {
