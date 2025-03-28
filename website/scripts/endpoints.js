@@ -2,12 +2,11 @@
 
 export async function validateUser(emailOrUsername, password) {
     try {
-        const response = await fetch("http://127.0.0.1:5000/validate_user", {
+        const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/validate_user", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            credentials: 'inlclude',
             body: JSON.stringify({
                 username_or_email: emailOrUsername,
                 password: password, // Now properly passed
@@ -30,7 +29,7 @@ export async function validateUser(emailOrUsername, password) {
 
 export async function registerUser(name, password, email) {
     try {
-        const response = await fetch('http://127.0.0.1:5000/add_user', {
+        const response = await fetch('https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/add_user', {
             method: 'POST', //post method
             headers: {
                 'Content-Type': 'application/json'
@@ -58,7 +57,7 @@ export async function registerUser(name, password, email) {
 
 export async function getCurrUser() {
     try {
-        const response = await fetch("http://127.0.0.1:5000/current_user", {
+        const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/current_user", {
             method: "GET",
             credentials: 'same-origin',
             headers: {
