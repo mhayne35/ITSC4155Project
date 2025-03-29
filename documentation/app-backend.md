@@ -1,34 +1,18 @@
 # How to Start and Use the Flask App with JavaScript
 
 This document will guide you through the process of starting up the Flask app and explain how the JavaScript code interacts with it to send data (such as user information) to the backend.
-### Setting Up the Backend (Flask)
-1. **Install Required Libraries**  
-   First, install the necessary Python libraries by running the following command in your terminal:
-   
-   ```bash
-   pip install flask flask-cors psycopg2 flask_session
-   ```
+### Frontend and Azure basics:
+[![Video Title](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://youtu.be/3Sv-to22spY)
 
-2. **Set Up .env File**
-Now that the app is connected to Azure, you need to create a .env file in the root directory of your project with the following variables:
+### In depth backend explanation
+[![Video Title](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://youtu.be/zr5eyampSD0)
 
-```e
-ADMIN_PASS=SBHF_postgres
-ADMIN_LOGIN=apolloadmin
-
-```
-Replace {your_school_email} with your school email address.
-The ACCESS_TOKEN can be generated through the Azure portal as outlined below.
-
-
-3. **Run the App**
-To start the Flask app, navigate to the directory where app.py is located and run the following command:
+### How To Connect to the database and look at the users table: 
+https://portal.azure.com/#@student.uncc.edu/resource/subscriptions/b902e8ae-1ab1-4f4d-a8f4-c070a3bcd507/resourceGroups/ITSC4155Apollo/providers/Microsoft.DBforPostgreSQL/flexibleServers/apollo-dev/overview
 ```bash
-python app.py
+psql "host=apollo-dev.postgres.database.azure.com port=5432 dbname=postgres password=SBHF_postgres user=apolloadmin sslmode=require"
 ```
-you might need to cd into backend first
-
-
+[![Video Title](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://youtu.be/_63ot2Q3Emc)
 
 ### How the JS Communicates ###
 Now, let’s look at how the frontend JavaScript interacts with the Flask app to send user data (such as username, password, and email) to the backend.
