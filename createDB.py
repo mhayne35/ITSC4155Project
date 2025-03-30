@@ -8,18 +8,18 @@ import os
 ### DEPRECATED: The DB only needed to be created once wiht Azure do not run this ###
 
 
-ADMIN_USER = os.getenv("ADMIN_USER")
-ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+ADMIN_LOGIN = os.getenv("ADMIN_LOGIN")
+ADMIN_PASS = os.getenv("ADMIN_PASS")
 
 # Establish connection to DB and create cursor
 conn = psycopg2.connect(
-            database="postgres",
-            host="apollo-dev.postgres.database.azure.com",
-            user=ADMIN_USER,
-            password=ACCESS_TOKEN,
-            port="5432",
-            sslmode="require"
-        )
+                database="postgres",
+                host="apollo-dev.postgres.database.azure.com",
+                password="SBHF_postgres",
+                user="apolloadmin",
+                port="5432",
+                sslmode="require"
+            )
 cursor = conn.cursor()
 
 # Drop the table
@@ -41,12 +41,32 @@ cursor.execute("""
     );
 """)
 
-# Add test user
-# Add test user
+# UPDATE ADDED NEW TABLES FOR FORMULA/SURVEY
 cursor.execute("""
-    INSERT INTO users (username, password, email)
-    VALUES ('testuser', 'password', 'user@example.com');
+    CREATE TABLE IF NOT EXISTS personal_traits (
+    username VARCHAR(30) NOT NULL,
+    creativity INT CHECK (creativity BETWEEN 1 AND 10),
+    leadership INT CHECK (leadership BETWEEN 1 AND 10),
+    enthusiasm INT CHECK (enthusiasm BETWEEN 1 AND 10),
+    PRIMARY KEY (username),
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
 """)
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS user_contacts (
+    username VARCHAR(30) NOT NULL,
+    phone_number VARCHAR(20),
+    github_link VARCHAR(255),
+    discord_profile VARCHAR(255),
+    PRIMARY KEY (username),
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
+""")
+
+# Add test user
+# Add test user
+
 
 # Commit changes to the database
 conn.commit()

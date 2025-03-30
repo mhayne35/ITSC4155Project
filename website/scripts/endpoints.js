@@ -16,7 +16,7 @@ export async function validateUser(emailOrUsername, password) {
         const data = await response.json();
         
         if (!response.ok) throw new Error(data.error || "Invalid username or password");
-        window.location.href = "https://dulcet-baklava-36c54a.netlify.app/biography.html"; 
+        window.location.href = "https://dulcet-baklava-36c54a.netlify.app/survey.html"; 
         return data.user; // Ensure this returns the user properly
 
     } catch (error) {
@@ -70,6 +70,32 @@ export async function getCurrUser() {
         if (!response.ok) throw new Error(data.error || "No User Logged In");
 
         return data.user; // Ensure this returns the user properly
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert(error.message);
+        return null;
+    }
+}
+
+export async function sendSurveyInfo() {
+    try {
+        const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/update_user_data", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formObject),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("✅ Data updated successfully!");
+            console.log(result);
+        } else {
+            alert("❌ Error updating data: " + result.error);
+        }
 
     } catch (error) {
         console.error("Error:", error);
