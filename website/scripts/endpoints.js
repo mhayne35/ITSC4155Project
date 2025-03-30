@@ -78,7 +78,7 @@ export async function getCurrUser() {
     }
 }
 
-export async function sendSurveyInfo() {
+export async function sendSurveyInfo(formObject) {
     try {
         const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/update_user_data", {
             method: "POST",

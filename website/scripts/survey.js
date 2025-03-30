@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
-        
-        
+        delete formObject.username; 
+        sendSurveyInfo(formObject);
         
     });
 });
