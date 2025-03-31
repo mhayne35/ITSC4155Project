@@ -1,7 +1,15 @@
-import { sendSurveyInfo } from './endpoints.js';
+import { getCurrUser, sendSurveyInfo } from './endpoints.js';
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("surveyForm");
-
+    console.log("Cookies:", document.cookie);
+    getCurrUser().then(data => {
+        if (data) {
+            alert("User Exists");
+            
+        } else {
+            alert("User Does Not Exist");
+        }
+    })
     form.addEventListener("submit", (event) => {
         event.preventDefault(); // Prevent form from submitting normally
 
@@ -56,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
-        delete formObject.username; 
+        
         sendSurveyInfo(formObject);
         
     });
