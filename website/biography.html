@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeamForge - Build Better Teams</title>
+    <script type="module" src="./scripts/loadbio.js"></script>
     <style>
+        /* Same styles as before, with changes for divs instead of inputs/textarea */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -76,10 +78,8 @@
             text-align: left;
         }
 
-        /* Simple input/textarea styling for full width */
-        .bio-container input[type="text"],
-        .bio-container input[type="email"],
-        .bio-container textarea {
+        /* Simple div styling for full width and text */
+        .bio-container div {
             width: 100%;
             box-sizing: border-box;
             padding: 10px;
@@ -87,6 +87,7 @@
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            background: #f4f4f4;
         }
 
         footer {
@@ -106,7 +107,7 @@
         }
 
         main {
-            flex: 1; /* This pushes the footer to the bottom */
+            flex: 1;
         }
 
         footer {
@@ -135,16 +136,25 @@
         <h1>About Me:</h1>
         <div class="bio-container">
             <p><strong>My name:</strong></p>
-            <input type="text" name="name">
+            <div id="username"></div>
 
             <p><strong>My email:</strong></p>
-            <input type="email" name="email">
+            <div id="email"></div>
 
             <p><strong>My skills:</strong></p>
-            <textarea name="skills" rows="4"></textarea>
+            <div id="skills"></div>
 
             <p><strong>Projects I am working on:</strong></p>
-            <textarea name="projects" rows="4"></textarea>
+            <div id="projects"></div>
+
+            <p><strong>My phone number:</strong></p>
+            <div id="phone"></div>
+
+            <p><strong>My Discord:</strong></p>
+            <div id="discord"></div>
+
+            <p><strong>My GitHub:</strong></p>
+            <div id="github"></div>
         </div>
     </main>
 
@@ -152,8 +162,7 @@
     <footer>
         <p>&copy; 2025 TeamForge. All rights reserved.</p>
     </footer>
-
-    <script src="loadbio.js"></script>
+    
 
 </body>
 </html>
