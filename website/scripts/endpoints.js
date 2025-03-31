@@ -80,6 +80,34 @@ export async function getCurrUser() {
     }
 }
 
+export async function getUserData(username) {
+    try {
+        const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/current_user", {
+            method: "POST",
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                {
+                    username: username
+                }
+            ),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) throw new Error(data.error || "No User Logged In");
+
+        return data.user; // Ensure this returns the user properly
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert(error.message);
+        return null;
+    }
+}
+
 export async function sendSurveyInfo(formObject) {
     try {
         const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/update_user_data", {
