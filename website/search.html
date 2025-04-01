@@ -135,10 +135,10 @@
 
     <!--Search Bar-->
     <div class="search-container">
-        <form action="recommended.html" method="GET" style="display: flex; justify-content: center; align-items: center;">
+        <form onsubmit="event.preventDefault(); searchProfiles();" style="display: flex; justify-content: center; align-items: center;">
             <input type="text" name="query" placeholder="Search person..." style="margin-right: 10px;">
-            <a href="recommended.html"><button type="submit">Search</button></a>
-        </form>
+            <button type="submit">Search</button>
+        </form>        
     </div>
 
     <!-- Profiles Grid -->
@@ -185,5 +185,31 @@
     <footer>
         <p>&copy; 2025 TeamForge. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Filters the profiles based on the user’s search input
+        function searchProfiles() {
+            const searchInput = document.querySelector('input[name="query"]');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            // Grab all the profile containers
+            const profiles = document.querySelectorAll('.profile');
+            
+            // Loop through each profile, check if it matches the search
+            profiles.forEach(profile => {
+                const name = profile.querySelector('h2').textContent.toLowerCase();
+                const description = profile.querySelector('p').textContent.toLowerCase();
+    
+                // If the name OR description (interests, skills, etc.) contain the search term, show it
+                // Otherwise, hide it
+                if (name.includes(searchTerm) || description.includes(searchTerm)) {
+                    profile.style.display = 'block';
+                } else {
+                    profile.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
 </body>
 </html>
