@@ -124,7 +124,7 @@ export async function sendSurveyInfo(formObject) {
         if (response.ok) {
             alert("✅ Data updated successfully!");
             console.log(result);
-            window.location.href = "https://dulcet-baklava-36c54a.netlify.app/biography.html"; 
+            window.location.href = "https://itsc4155teamforge.netlify.app//biography.html"; 
         } else {
             alert("❌ Error updating data: " + result.error);
         }
