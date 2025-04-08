@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("User Exists");
             getUserData(data.username).then(data => {
                 console.log(data);
-                if (data){
+                if (data.skills){
                     console.log("User has a profile, redirecting to biography.html");
                     window.location.href = "biography.html"; // Redirect to profile page if user already has a profile
                 } else {
