@@ -1,168 +1,237 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeamForge - Build Better Teams</title>
-    <script type="module" src="./scripts/loadbio.js"></script>
-    <style>
-        /* Same styles as before, with changes for divs instead of inputs/textarea */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamForge - Build Better Teams</title>
+  <script type="module" src="./scripts/loadbio.js"></script>
+  <style>
+    /* Overall page styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        /* HEADER */
-        header {
-            background: #0073e6;
-            color: white;
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    header {
+      background: linear-gradient(135deg, #0073e6, #005bb5);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .logo {
-            height: 80px;
-        }
+    .logo {
+      height: 80px;
+    }
 
-        .nav-bar {
-            display: flex;
-            align-items: center;
-        }
+    .nav-bar {
+      display: flex;
+      align-items: center;
+    }
 
-        .nav-bar a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            margin-left: 20px;
-            padding: 10px 15px;
-            background: #005bb5;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      margin-left: 20px;
+      padding: 10px 15px;
+      background: #005bb5;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
 
-        .nav-bar a:hover {
-            background: #00408a;
-        }
+    .nav-bar a:hover {
+      background: #00408a;
+    }
 
-        /* MAIN CONTENT */
-        main {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      text-align: center;
+    }
 
-        h1 {
-            color: #0073e6;
-        }
+    h1 {
+      color: #0073e6;
+    }
 
-        .bio-container {
-            padding: 20px;
-            background: #eef5ff;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .bio-container {
+      padding: 20px;
+      background: #eef5ff;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
 
-        .bio-container p {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 8px;
-            text-align: left;
-        }
+    .bio-container p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 8px;
+    }
 
-        /* Simple div styling for full width and text */
-        .bio-container div {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background: #f4f4f4;
-        }
+    /* Editable fields styling */
+    .bio-container div[contenteditable="true"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #fff;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
 
-        footer {
-            background: #0073e6;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            margin-top: 20px;
-        }
+    .bio-container div[contenteditable="true"]:focus {
+      background: #f9faff;
+      border-color: #0073e6;
+      outline: none;
+    }
 
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
+    /* Button container and button styling */
+    .button-container {
+      margin-top: 20px;
+      text-align: center;
+    }
 
-        main {
-            flex: 1;
-        }
+    .button-container button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-        footer {
-            background: #0073e6;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            margin-top: auto;
-        }
-    </style>
+    #updateBtn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #updateBtn:hover {
+      background-color: #218838;
+    }
+
+    #cancelBtn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    #cancelBtn:hover {
+      background-color: #c82333;
+    }
+
+    footer {
+      background: #0073e6;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <img src="./images/TeamForge2.png" alt="TeamForge Logo" class="logo">
-        <nav class="nav-bar">
-            <a href="signup.html">Sign Up</a>
-            <a href="login.html">Login</a>
-            <a href="index.html">Home</a>
-        </nav>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <img src="./images/TeamForge2.png" alt="TeamForge Logo" class="logo">
+    <nav class="nav-bar">
+      <a href="index.html">Home</a>
+      <a href="survey.html">Survey</a>
+      <a href="search.html">Search People</a>
+      <a href="recommended.html">Recommended People</a>
+    </nav>
+  </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <h1>About Me:</h1>
-        <div class="bio-container">
-            <p><strong>My name:</strong></p>
-            <div id="username"></div>
+  <!-- MAIN CONTENT -->
+  <main>
+    <h1>About Me:</h1>
+    <div class="bio-container">
+      <p><strong>My name:</strong></p>
+      <div id="username" contenteditable="true"></div>
 
-            <p><strong>My email:</strong></p>
-            <div id="email"></div>
+      <p><strong>My email:</strong></p>
+      <div id="email" contenteditable="true"></div>
 
-            <p><strong>My skills:</strong></p>
-            <div id="skills"></div>
+      <p><strong>My skills:</strong></p>
+      <div id="skills" contenteditable="true"></div>
 
-            <p><strong>Projects I am working on:</strong></p>
-            <div id="projects"></div>
+      <p><strong>Projects I have worked on:</strong></p>
+      <div id="projects" contenteditable="true"></div>
 
-            <p><strong>My phone number:</strong></p>
-            <div id="phone"></div>
+      <p><strong>My phone number:</strong></p>
+      <div id="phone" contenteditable="true"></div>
 
-            <p><strong>My Discord:</strong></p>
-            <div id="discord"></div>
+      <p><strong>My Discord:</strong></p>
+      <div id="discord" contenteditable="true"></div>
 
-            <p><strong>My GitHub:</strong></p>
-            <div id="github"></div>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2025 TeamForge. All rights reserved.</p>
-    </footer>
+      <p><strong>My GitHub:</strong></p>
+      <div id="github" contenteditable="true"></div>
+    </div>
     
+    <!-- Button Container -->
+    <div class="button-container">
+      <button id="updateBtn">Update</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 TeamForge. All rights reserved.</p>
+  </footer>
+
+  <!-- Inline Script for Update/Cancel functionality -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const fields = ['username', 'email', 'skills', 'projects', 'phone', 'discord', 'github'];
+      // Store original data after loadbio.js script populates the fields.
+      setTimeout(function(){
+        window.originalBio = {};
+        fields.forEach(function(field) {
+          const elem = document.getElementById(field);
+          if (elem) {
+            window.originalBio[field] = elem.innerText.trim();
+          }
+        });
+      }, 500);
+      
+      // "Update" button: Save the current changes and update the originalBio object.
+      document.getElementById("updateBtn").addEventListener("click", function() {
+        fields.forEach(function(field) {
+          const elem = document.getElementById(field);
+          if (elem) {
+            window.originalBio[field] = elem.innerText.trim();
+          }
+        });
+        // Here you can add additional logic to persist changes (e.g., via an API call or localStorage)
+        alert("Biography updated successfully!");
+      });
+
+      // "Cancel" button: Revert changes made in the editable fields.
+      document.getElementById("cancelBtn").addEventListener("click", function() {
+        fields.forEach(function(field) {
+          const elem = document.getElementById(field);
+          if (elem && window.originalBio[field] !== undefined) {
+            elem.innerText = window.originalBio[field];
+          }
+        });
+        alert("Changes have been reverted.");
+      });
+    });
+  </script>
 
 </body>
 </html>
