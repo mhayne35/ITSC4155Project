@@ -1,11 +1,20 @@
-import { getCurrUser, sendSurveyInfo } from './endpoints.js';
+import { getCurrUser, getUserData, sendSurveyInfo } from './endpoints.js';
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("surveyForm");
-    console.log("Cookies:", document.cookie);
+
+    // This is not the best way to do this but it works for now
     getCurrUser().then(data => {
         if (data) {
             alert("User Exists");
-            
+            getUserData(data.username).then(data => {
+                console.log(data);
+                if (data){
+                    console.log("User has a profile, redirecting to biography.html");
+                    window.location.href = "biography.html"; // Redirect to profile page if user already has a profile
+                } else {
+                    console.log("???");
+                }
+            })
         } else {
             alert("User Does Not Exist");
         }
