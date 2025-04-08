@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", function(){
             .then(data => {
                 if (data) {
                     alert("Data from validate: \n" + data.username);
-                    
+                    console.log("Data from validate: ", data);
+                    //localStorage.setItem("username", data.username); // not work???
                 } else {
                     alert("Invalid username or password");
                 }

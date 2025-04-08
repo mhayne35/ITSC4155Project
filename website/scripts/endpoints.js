@@ -82,7 +82,7 @@ export async function getCurrUser() {
 
 export async function getUserData(username) {
     try {
-        const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/current_user", {
+        const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/get_user_data", {
             method: "POST",
             credentials: 'include',
             headers: {
@@ -99,7 +99,7 @@ export async function getUserData(username) {
 
         if (!response.ok) throw new Error(data.error || "No User Logged In");
 
-        return data.user; // Ensure this returns the user properly
+        return data; // Ensure this returns the user properly
 
     } catch (error) {
         console.error("Error:", error);

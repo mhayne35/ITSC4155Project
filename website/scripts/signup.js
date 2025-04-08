@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(){
             .then(data => {
                 if (data) {
                     alert("User Added: \n" + data[0]);
-                    
+                    window.location.href = "login.html"; // Redirect to login page after successful signup
                 } else {
                     alert("Invalid username or password");
                 }
