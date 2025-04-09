@@ -169,9 +169,8 @@
    
 
 </body>
-
 <script type="module">
-    import { getUserByEmail, addUser } from "../scripts/endpoints.js";
+    import { getAllUsers } from "../scripts/endpoints.js";
 
     document.addEventListener("DOMContentLoaded", function () {
         const loginForm = document.getElementById("loginForm");
@@ -185,10 +184,12 @@
             const passwordError = document.getElementById("passwordError");
             const generalError = document.getElementById("generalError");
 
+            // Reset all error messages
             emailError.style.display = "none";
             passwordError.style.display = "none";
             generalError.style.display = "none";
 
+            // Simple validation
             if (!email) {
                 emailError.style.display = "block";
                 return;
@@ -199,40 +200,32 @@
             }
 
             try {
-                const existingUser = await getUserByEmail(email);
+                const users = await getAllUsers();
+                const matchedUser = users.find(user => user.email === email);
 
-                if (existingUser) {
-                    if (existingUser.password === password) {
-                        alert(`Welcome back, ${existingUser.name}!`);
-                    } else {
-                        generalError.textContent = "Incorrect password.";
-                        generalError.style.display = "block";
-                        return;
-                    }
-                } else {
-                    const newUser = {
-                        email: email,
-                        password: password,
-                        name: email.split("@")[0], 
-                        bio: "New user on TeamForge!", 
-                        strengths: [],
-                        project_interests: []
-                    };
-
-                    await addUser(newUser);
-                    alert(`Account created! Welcome, ${newUser.name}!`);
+                if (!matchedUser) {
+                    generalError.textContent = "This email is not associated with any account.";
+                    generalError.style.display = "block";
+                    return;
                 }
 
-                localStorage.setItem("loggedIn", "true");
-                localStorage.setItem("userEmail", email);
+                if (matchedUser.password !== password) {
+                    generalError.textContent = "Incorrect password. Please try again.";
+                    generalError.style.display = "block";
+                    return;
+                }
 
-                window.location.href = "index.html";
+                // Successful login
+                alert(`Welcome back, ${matchedUser.name || "user"}!`);
+                localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("userEmail", matchedUser.email);
+
+                window.location.href = "signedinhome.html";
             } catch (error) {
                 console.error("Login error:", error);
-                generalError.textContent = "An error occurred. Please try again.";
+                generalError.textContent = "An error occurred. Please try again later.";
                 generalError.style.display = "block";
             }
         });
     });
 </script>
-</html>
