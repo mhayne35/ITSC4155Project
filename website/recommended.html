@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results - TeamForge</title>
+    <script type="module" src="./scripts/statemanagment.js"></script>  
+    <script type="module" src="./scripts/recommended.js"></script>   
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -154,14 +157,11 @@
 </head>
 <body>
     <!--Header-->
-    <header>
+    <header class="header">
         <img src="images/TeamForge2.png" alt="TeamForge Logo" class="logo">
         <nav class="nav-bar" id="nav-bar">
             <a href="signedinhome.html">Home</a>
             <a href="survey.html">Survey</a>
-            <a href="search.html">Search</a>
-            <a href="biography.html">Edit Bio</a>
-
         </nav>
     </header>
 
@@ -187,48 +187,5 @@
     </footer>
 
     <!-- JavaScript for Dynamic Content -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Simulated User Data (replace this with actual backend data)
-            const users = [
-                { name: "John Doe", desc: "Software developer looking for a startup partner.", img: "./images/pfp.jpg", bio: "biography.html" },
-                { name: "Jane Smith", desc: "AI enthusiast searching for a machine learning teammate.", img: "./images/pfp.jpg", bio:"biography.html" },
-                { name: "Alex Johnson", desc: "Game dev eager to build an indie game.", img: "./images/pfp.jpg", bio: "biography.html" },
-                { name: "Emily Davis", desc: "Blockchain lover wanting to create a DeFi app.", img: "./images/pfp.jpg", bio: "biography.html" },
-                { name: "Michael Lee", desc: "Full-stack developer looking for web projects.", img: "./images/pfp.jpg", bio: "biography.html" },
-                { name: "Sophia Brown", desc: "UX/UI designer needing a front-end dev.", img: "./images/pfp.jpg", bio: "biography.html" }
-            ];
-
-            // Get search query
-            const params = new URLSearchParams(window.location.search);
-            const query = params.get("query")?.toLowerCase() || "";
-
-            // Filter users based on query
-            const filteredUsers = users.filter(user => 
-                user.name.toLowerCase().includes(query) || 
-                user.desc.toLowerCase().includes(query)
-            );
-
-            const resultsContainer = document.getElementById("results");
-            const noResultsMessage = document.getElementById("no-results");
-
-            if (filteredUsers.length === 0) {
-                noResultsMessage.style.display = "block";
-            } else {
-                noResultsMessage.style.display = "none";
-                filteredUsers.forEach(user => {
-                    const userCard = `
-                        <div class="profile">
-                            <img src="${user.img}" alt="User">
-                            <h2>${user.name}</h2>
-                            <p>${user.desc}</p>
-                            <a href="${user.bio}"><button>Connect</button></a>
-                        </div>
-                    `;
-                    resultsContainer.innerHTML += userCard;
-                });
-            }
-        });
-    </script>
 </body>
 </html>

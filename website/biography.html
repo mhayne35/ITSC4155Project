@@ -1,21 +1,19 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeamForge - Build Better Teams</title>
-  <script type="module" src="./scripts/loadbio.js"></script>
-  <style>
-    /* Overall page styling */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamForge - Build Better Teams</title>
+    <script type="module" src="./scripts/loadbio.js"></script>
+    <script type="module" src="./scripts/statemanagment.js"></script>
+    <style>
+        /* Same styles as before, with changes for divs instead of inputs/textarea */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
     header {
       background: linear-gradient(135deg, #0073e6, #005bb5);
@@ -144,16 +142,15 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="./images/TeamForge2.png" alt="TeamForge Logo" class="logo">
-    <nav class="nav-bar">
-      <a href="signedinhome.html">Home</a>
-      <a href="survey.html">Survey</a>
-      <a href="search.html">Search</a>
-      <a href="recommended.html">Matches</a>
-    </nav>
-  </header>
+    <!-- HEADER -->
+    <header class="header">
+        <img src="./images/TeamForge2.png" alt="TeamForge Logo" class="logo">
+        <nav class="nav-bar">
+            <a href="signup.html">Sign Up</a>
+            <a href="login.html">Login</a>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
 
   <!-- MAIN CONTENT -->
   <main>
