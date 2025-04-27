@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="signedinhome.html">Home</a>
                     <a href="survey.html">Survey</a>
                     <a href="recommended.html">Matches</a>
+                    <a href="logout.html">Logout</a>
                     ${bioLink}
                 </nav>
             `;

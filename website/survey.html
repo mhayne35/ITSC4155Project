@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Building Survey</title>
+    <link rel="stylesheet" href="forStart.css"> <!-- Ensure CSS file is present -->
     <script type="module" src="./scripts/survey.js"></script>
     <style>
         body {
@@ -11,67 +12,37 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        /* HEADER */
+        
         header {
             background: #0073e6;
             color: white;
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
         }
 
-        .logo {
-            height: 80px;
-        }
-
-        .nav-bar {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-bar a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            margin-left: 20px;
-            padding: 10px 15px;
-            background: #005bb5;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .nav-bar a:hover {
-            background: #00408a;
-        }
-
-        /* MAIN CONTAINER */
         main {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px 30px;
             background: white;
+            max-width: 800px;
+            width: 90%;
+            margin: 20px 0;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            color: #0073e6;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
         section {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         h2 {
-            color: #0073e6;
             border-bottom: 2px solid #0073e6;
             padding-bottom: 5px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .form-group {
@@ -86,15 +57,10 @@
 
         input, textarea {
             width: 100%;
-            padding: 10px;
-            font-size: 16px;
+            padding: 8px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        input[type="range"] {
-            width: 100%;
         }
 
         input::placeholder, textarea::placeholder {
@@ -104,11 +70,12 @@
         button {
             background: #0073e6;
             color: white;
-            padding: 12px;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            display: block;
             width: 100%;
         }
 
@@ -116,62 +83,53 @@
             background: #005bb5;
         }
 
-        /* FOOTER */
         footer {
+            text-align: center;
+            padding: 10px;
             background: #0073e6;
             color: white;
-            padding: 15px;
-            text-align: center;
-            margin-top: 20px;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-
-    <!-- HEADER -->
     <header>
-        <img src="images/TeamForge2.png" alt="TeamForge Logo" class="logo">
-        <nav class="nav-bar">
-            <a href="signedinhome.html">Home</a>
-            <a href="recommended.html">Matches</a>
-            <a href="search.html">Search</a>
-            <a href="biography.html">Edit Bio</a>
-
-        </nav>
+        <h1>Team Building Survey</h1>
+        <p>Connect with teammates who share your interests!</p>
+        <a href="signedinhome.html">Home</a>
+        <a href="recommended.html">Matches</a>
     </header>
 
-    <!-- MAIN SURVEY FORM -->
     <main>
-        <h1>Team Building Survey</h1>
         <form id="surveyForm" action="submit.html" method="POST">
-
-            <!-- Personal Information -->
+            <!-- Personal Information Section -->
             <section>
                 <h2>Personal Information</h2>
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required placeholder="Enter your full name">
                 </div>
+                
             </section>
 
-            <!-- Contact Information -->
+            <!-- Contact Information (Optional) -->
             <section>
                 <h2>Contact Information (Optional)</h2>
                 <div class="form-group">
                     <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (optional)">
                 </div>
                 <div class="form-group">
                     <label for="github">GitHub:</label>
-                    <input type="url" id="github" name="github" placeholder="Enter your GitHub profile URL">
+                    <input type="url" id="github" name="github" placeholder="Enter your GitHub profile URL (optional)">
                 </div>
                 <div class="form-group">
                     <label for="discord">Discord:</label>
-                    <input type="text" id="discord" name="discord" placeholder="Enter your Discord username">
+                    <input type="text" id="discord" name="discord" placeholder="Enter your Discord username (optional)">
                 </div>
             </section>
 
-            <!-- Interests -->
+            <!-- Interests Section -->
             <section>
                 <h2>Interests & Hobbies</h2>
                 <div class="form-group">
@@ -180,7 +138,7 @@
                 </div>
             </section>
 
-            <!-- Skills & Experience -->
+            <!-- Skills & Experience Section -->
             <section>
                 <h2>Skills & Experience</h2>
                 <div class="form-group">
@@ -193,32 +151,34 @@
                 </div>
             </section>
 
-            <!-- Traits -->
+            <!-- Personal Traits Section -->
             <section>
                 <h2>Personal Traits</h2>
-                <p>Rate yourself from 1 (low) to 10 (high):</p>
+                <p>Rate yourself on a scale of 1 to 10 for the following traits:</p>
+
                 <div class="form-group">
                     <label for="creativity">Creativity:</label>
                     <input type="range" id="creativity" name="creativity" min="1" max="10" value="5">
                 </div>
+
                 <div class="form-group">
                     <label for="leadership">Leadership:</label>
                     <input type="range" id="leadership" name="leadership" min="1" max="10" value="5">
                 </div>
+
                 <div class="form-group">
                     <label for="enthusiasm">Enthusiasm:</label>
                     <input type="range" id="enthusiasm" name="enthusiasm" min="1" max="10" value="5">
                 </div>
             </section>
 
-            <!-- Submit -->
+            <!-- Submit Button -->
             <button type="submit">Submit Survey</button>
         </form>
     </main>
 
-    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 TeamForge. All rights reserved.</p>
+        <p>&copy; 2025 Team Building Survey. All rights reserved.</p>
     </footer>
 </body>
 </html>
