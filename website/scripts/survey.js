@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // This is not the best way to do this but it works for now
     getCurrUser().then(data => {
         if (data) {
-            alert("User Exists");
+            // alert("User Exists");
             getUserData(data.username).then(data => {
                 console.log(data);
                 if (data.skills || data.github || data.discord || data.phone) { // BASICALLY IF THE USER HAS ANY OF THE THINGS ONLY THE SURVEY HAS
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
         } else {
-            alert("User Does Not Exist");
+            // alert("User Does Not Exist");
         }
     })
     form.addEventListener("submit", (event) => {

@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(){
                             }
                         });
                     } else {
-                        alert("No recommended users found.");
+                        // alert("No recommended users found.");
                         if (!recommendedUsers || recommendedUsers.length === 0) {
                             noResultsMessage.style.display = "block";
                             return;
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     }
                 })
             } else {
-                alert("Something went wrogn");
+                // alert("Something went wrogn");
             }
         })
     }

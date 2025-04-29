@@ -60,10 +60,10 @@ document.addEventListener("DOMContentLoaded", function(){
             registerUser(name, password, email)
             .then(data => {
                 if (data) {
-                    alert("User Added: \n" + data[0]);
+                    // alert("User Added: \n" + data[0]);
                     window.location.href = "login.html"; // Redirect to login page after successful signup
                 } else {
-                    alert("Invalid username or password");
+                    // alert("Invalid username or password");
                 }
             })
         }

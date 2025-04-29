@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", function(){
             validateUser(emailOrUsername, password)
             .then(data => {
                 if (data) {
-                    alert("Data from validate: \n" + data.username);
+                    // alert("Data from validate: \n" + data.username);
                     console.log("Data from validate: ", data);
                     //localStorage.setItem("username", data.username); // not work???
                 } else {
-                    alert("Invalid username or password");
+                    // alert("Invalid username or password");
                 }
             })
              // Delay to ensure session updates

@@ -35,15 +35,15 @@ fetch('http://127.0.0.1:5000/add_user', {
 .then(response => response.json()) // Parse the response as JSON
 .then(data => {
     if (data.user) {
-        alert(`User added: ${data.user[0]}`); // Debugging message
+        // alert(`User added: ${data.user[0]}`); // Debugging message
         window.location.href = "index.html"; // Redirect after user is added
     } else {
-        alert('Error adding user');
+        // alert('Error adding user');
     }
 })
 .catch(error => {
     console.error('Error:', error);
-    alert('Error adding user');
+    // alert('Error adding user');
 });
 ```
 

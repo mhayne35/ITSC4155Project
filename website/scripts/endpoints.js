@@ -22,7 +22,7 @@ export async function validateUser(emailOrUsername, password) {
 
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 
@@ -52,7 +52,7 @@ export async function registerUser(name, password, email) {
 
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 }
@@ -75,7 +75,7 @@ export async function getCurrUser() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 }
@@ -103,7 +103,7 @@ export async function getUserData(username) {
 
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 }
@@ -131,7 +131,7 @@ export async function getUserRecommended(username) {
 
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 }
@@ -159,7 +159,7 @@ export async function searchUser(query) {
 
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 }
@@ -178,16 +178,16 @@ export async function sendSurveyInfo(formObject) {
         const result = await response.json();
 
         if (response.ok) {
-            alert("✅ Data updated successfully!");
+            // alert("✅ Data updated successfully!");
             console.log(result);
             window.location.href = "https://itsc4155teamforge.netlify.app/biography.html"; 
         } else {
-            alert("❌ Error updating data: " + result.error);
+            // alert("❌ Error updating data: " + result.error);
         }
 
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 }
@@ -209,7 +209,7 @@ export async function logoutUser() {
         return data.user; // Ensure this returns the user properly
     } catch (error) {
         console.error("Error:", error);
-        alert(error.message);
+        // alert(error.message);
         return null;
     }
 }

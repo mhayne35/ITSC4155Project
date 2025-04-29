@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async function(){
     } else {
         const currentUser = await getCurrUser();
         if (!currentUser) {
-            alert("Something went wrong");
+            // alert("Something went wrong");
             return;
         }
         usernameToLoad = currentUser.username;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async function(){
             document.getElementById("github").textContent = 'N/A';
         }
     } else {
-        alert("User Does Not Exist");
+        // alert("User Does Not Exist");
         window.location.href = "login.html";
     }
 });
