@@ -1,3 +1,10 @@
+# INSTRUCTIONS FOR TAs / INSTRUCTOR:
+The running of the program is not needed since everything is hosted online, if you try to run locally you will get cors policy errors, which is why its hosted online. In order to visit the site and see the production enviornment (CI/CD pipline) follow the links below
+Site:
+https://itsc4155teamforge.netlify.app/
+backend:
+https://github.com/MasonScarbro/teamforge-backend/tree/bdbd8900862e075044d3b3b9e0020e77bcf177fc
+
 # ITSC 4155 Final Project
 
 ## Description
