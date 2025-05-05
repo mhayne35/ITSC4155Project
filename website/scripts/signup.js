@@ -63,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function(){
                     // alert("User Added: \n" + data[0]);
                     window.location.href = "login.html"; // Redirect to login page after successful signup
                 } else {
-                    // alert("Invalid username or password");
+                    generalError.textContent = "Username or email already exists.";
+                    generalError.style.display = "block";
                 }
             })
         }

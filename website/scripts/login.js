@@ -45,10 +45,14 @@ document.addEventListener("DOMContentLoaded", function(){
                     console.log("Data from validate: ", data);
                     //localStorage.setItem("username", data.username); // not work???
                 } else {
-                    // alert("Invalid username or password");
+                    generalError.textContent = "Invalid username or password.";
+                    generalError.style.display = "block";
                 }
             })
              // Delay to ensure session updates
+        } else {
+            generalError.textContent = "Please fill in all fields.";
+            generalError.style.display = "block";
         }
     });
 })

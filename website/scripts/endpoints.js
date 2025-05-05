@@ -213,3 +213,34 @@ export async function logoutUser() {
         return null;
     }
 }
+
+export async function sendEmail(targetUser) {
+    try {
+        const response = await fetch("https://teamforge-beackend-f4fsfvbud9g7b0bp.canadacentral-01.azurewebsites.net/send_connection_email", {
+            method: "POST",
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                target_username: targetUser,
+            }),
+        });
+
+        const result = await response.json();
+
+        
+        if (response.ok) {
+            console.log("✅ Email sent:", result);
+            return true;
+        } else {
+            console.error("❌ Error:", result.error);
+            return false;
+        }
+
+    } catch (error) {
+        console.error("Error:", error);
+        // alert(error.message);
+        return null;
+    }
+}

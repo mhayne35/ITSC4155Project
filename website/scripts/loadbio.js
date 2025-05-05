@@ -1,4 +1,4 @@
-import { getCurrUser, getUserData } from './endpoints.js';
+import { getCurrUser, getUserData, sendEmail } from './endpoints.js';
 
 document.addEventListener("DOMContentLoaded", async function(){
     const urlParams = new URLSearchParams(window.location.search);
@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", async function(){
 
     if (queryUsername) {
         usernameToLoad = queryUsername;
+        sendEmail(usernameToLoad).then((response) => {
+            if (response) {
+                console.log("Email sent successfully!");
+            } else {
+                console.error("Failed to send email.");
+            }
+        });
     } else {
         const currentUser = await getCurrUser();
         if (!currentUser) {
